@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map proto="1.3.3">
+  <name>Orbes</name>
+  <version>1.0.0</version>
+  <objective>Grab the wool from the enemy's wool room and place it on your victory monument</objective>
+  <authors>
+    <author contribution="Idea and Map Design">Dephixe</author>
+    <author contribution="Map Design, Feedback and XML">firstvirus92</author>
+  </authors>
+  <contributors>
+    <contributor contribution="Map Design and Feedback">odisseus</contributor>
+  </contributors>
+  <wools>
+    <wool team="blue" color="cyan">
+      <block>-292,6,578</block>
+    </wool>
+      <wool team="red" color="green">
+      <block>-292,6,646</block>
+    </wool>
+  </wools>
+  <teams>
+    <team color="blue" max="8">blue</team>
+    <team color="dark red" max="8">red</team>
+  </teams>
+  <rules>
+    <rule>Fall damage is disabled</rule>
+  </rules>
+  <kits>
+    <kit name="spawn">
+      <item slot="0">iron_sword</item>
+      <item slot="1">bow</item>
+      <item slot="2">diamond_pickaxe</item>
+      <item slot="3">iron_axe</item>
+      <item slot="6" amount="16" damage="1">log2</item>
+      <item slot="7">golden_apple</item>
+      <item slot="8" amount="64">golden_carrot</item>
+      <item slot="27" amount="64">arrow</item>
+      <item slot="16" amount="3">gold_ingot</item>
+      <item slot="17">emerald</item>
+      <potion duration="2" amplifier="3">speed</potion>
+      <potion duration="5" amplifier="2">damage_resistance</potion>
+      <potion duration="oo">night_vision</potion>
+      <helmet>diamond_helmet</helmet>
+      <leggings>chainmail_leggings</leggings>
+    </kit>
+    <kit name="blue" parents="spawn">
+      <item slot="4" amount="32" damage="11">stained_hardened_clay</item>
+      <item slot="5" amount="16" damage="11">stained_glass</item>
+      <chestplate color="003580">leather_chestplate</chestplate>
+      <boots color="003580">leather_boots</boots>
+    </kit>
+      <kit name="red" parents="spawn">
+      <item slot="4" amount="32" damage="14">stained_hardened_clay</item>
+      <item slot="5" amount="16" damage="14">stained_glass</item>
+      <chestplate color="cd0000">leather_chestplate</chestplate>
+      <boots color="cd0000">leather_boots</boots>
+    </kit>
+    <kit name="spawn-regen" force="true">
+      <potion duration="1" amplifier="2">regeneration</potion>
+    </kit>
+  </kits>
+  <toolrepair>
+    <tool>iron_sword</tool>
+    <tool>bow</tool>
+    <tool>diamond_pickaxe</tool>
+    <tool>iron_axe</tool>
+  </toolrepair>
+  <itemremove>
+    <item>log2</item>
+    <item>planks</item>
+    <item>golden_carrot</item>
+    <item>stained_hardened_clay</item>
+    <item>stained_glass</item>
+  </itemremove>
+  <disabledamage>
+    <damage>fall</damage>
+  </disabledamage>
+  <killreward>
+    <item>golden_apple</item>
+    <item amount="3">gold_ingot</item>
+    <item>emerald</item>
+  </killreward>
+  <gamerules>
+    <doDaylightCycle>false</doDaylightCycle>
+  </gamerules>
+  <multitrade/>
+  <filters>
+    <filter name="only-blue">
+      <any><team>blue</team></any>
+    </filter>
+    <filter name="only-red">
+      <any><team>red</team></any>
+    </filter>
+    <filter name="allow-cobweb-cyan">
+      <all>
+        <team>blue</team>
+        <block>web</block>
+      </all>
+    </filter>
+    <filter name="allow-cobweb-green">
+      <all>
+        <team>red</team>
+        <block>web</block>
+      </all>
+    </filter>
+  </filters>
+  <regions>
+    <negative>
+      <cuboid name="playable" min="-326,3,566" max="-258,15,658"/>
+    </negative>
+    <apply block="deny-all" message="You may not build outside of the map!">
+      <region name="playable"/>
+    </apply>
+    <apply block="deny-all" message="You may not destroy the emerald spawner!">
+      <block name="emerald-spawner">-292,6,612</block>
+    </apply>
+    <apply block="deny-all" message="You may not modify this platform!">
+      <cylinder name="spawn-platform-blue" base="-266,4,580" radius="8" height="oo"/>
+      <cylinder name="trade-platform-blue" base="-292,4,580" radius="4" height="oo"/>
+      <cylinder name="spawn-platform-red" base="-318,4,644" radius="8" height="oo"/>
+      <cylinder name="trade-platform-red" base="-292,4,644" radius="4" height="oo"/>
+    </apply>
+    <apply block="allow-cobweb-cyan" message=" You may not modify this wool room!">
+      <rectangle name="cyan-wool" min="-295,651" max="-289,657"/>
+    </apply>
+    <apply block="allow-cobweb-green" message=" You may not modify this wool room!">
+      <rectangle name="green-wool" min="-295,567" max="-289,573"/>
+    </apply>
+    <apply kit="spawn-regen">
+      <cuboid name="spawn-house-blue" min="-267,7,579" max="-265,9,581"/>
+      <cuboid name="spawn-house-red" min="-319,7,643" max="-317,9,645"/>
+    </apply>
+    <apply enter="only-blue" message="You  may not enter blue's base!">
+      <region name="spawn-platform-blue"/>
+      <region name="trade-platform-blue"/>
+    </apply>
+    <apply enter="only-blue" message="You may not enter your own wool room!">
+      <region name="cyan-wool"/>
+    </apply>
+    <apply enter="only-red" message="You may not enter red's base!">
+      <region name="spawn-platform-red"/>
+      <region name="trade-platform-red"/>
+    </apply>
+    <apply enter="only-red" message="You may not enter your own wool room!">
+      <region name="green-wool"/>
+    </apply>
+  </regions>
+  <spawns>
+    <spawn team="blue" kit="blue" yaw="90">
+      <block name="blue-spawn">-266,7,580</block>
+    </spawn>
+    <spawn team="red" kit="red" yaw="270">
+      <block name="spawn-red">-318,7,644</block>
+    </spawn>
+    <default yaw="270">
+      <block name="spawn-obs">-336,13,612</block>
+    </default>
+  </spawns>
+</map>
