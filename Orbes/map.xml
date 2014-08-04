@@ -29,7 +29,7 @@
       <item slot="2">diamond_pickaxe</item>
       <item slot="3">iron_axe</item>
       <item slot="6" amount="16" damage="1">log2</item>
-      <item slot="7">milk_bukket</item>
+      <item slot="7">milk_bucket</item>
       <item slot="8">golden_apple</item>
       <item slot="27" amount="64">arrow</item>
       <item slot="16" amount="3">gold_ingot</item>
@@ -70,6 +70,8 @@
     <item>stained_hardened_clay</item>
     <item>stained_glass</item>
     <item>gold_ingot</item>
+    <item>bucket</item>
+    <item>milk_bucket</item>
   </itemremove>
   <killreward>
     <item>golden_apple</item>
