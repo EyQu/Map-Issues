@@ -22,9 +22,6 @@
     <team color="blue" max="8">blue</team>
     <team color="dark red" max="8">red</team>
   </teams>
-  <rules>
-    <rule>Fall damage is disabled</rule>
-  </rules>
   <kits>
     <kit name="spawn">
       <item slot="0">iron_sword</item>
@@ -32,14 +29,15 @@
       <item slot="2">diamond_pickaxe</item>
       <item slot="3">iron_axe</item>
       <item slot="6" amount="16" damage="1">log2</item>
-      <item slot="7">golden_apple</item>
-      <item slot="8" amount="64">golden_carrot</item>
+      <item slot="7">milk_bukket</item>
+      <item slot="8">golden_apple</item>
       <item slot="27" amount="64">arrow</item>
       <item slot="16" amount="3">gold_ingot</item>
       <item slot="17">emerald</item>
       <potion duration="2" amplifier="3">speed</potion>
-      <potion duration="5" amplifier="2">damage_resistance</potion>
+      <potion duration="4" amplifier="2">damage_resistance</potion>
       <potion duration="oo">night_vision</potion>
+      <potion duration="oo">saturation</potion>
       <helmet>diamond_helmet</helmet>
       <leggings>chainmail_leggings</leggings>
     </kit>
@@ -56,7 +54,8 @@
       <boots color="cd0000">leather_boots</boots>
     </kit>
     <kit name="spawn-regen" force="true">
-      <potion duration="1" amplifier="2">regeneration</potion>
+      <potion duration="1" amplifier="1">regeneration</potion>
+      <potion duration="5" amplifier="2">slow</potion>
     </kit>
   </kits>
   <toolrepair>
@@ -68,13 +67,10 @@
   <itemremove>
     <item>log2</item>
     <item>planks</item>
-    <item>golden_carrot</item>
     <item>stained_hardened_clay</item>
     <item>stained_glass</item>
+    <item>gold_ingot</item>
   </itemremove>
-  <disabledamage>
-    <damage>fall</damage>
-  </disabledamage>
   <killreward>
     <item>golden_apple</item>
     <item amount="3">gold_ingot</item>
@@ -103,6 +99,9 @@
         <block>web</block>
       </all>
     </filter>
+    <filter name="deny-spawners">
+      <not><block>mob_spawner</block></not>
+    </filter>
   </filters>
   <regions>
     <negative>
@@ -111,14 +110,19 @@
     <apply block="deny-all" message="You may not build outside of the map!">
       <region name="playable"/>
     </apply>
-    <apply block="deny-all" message="You may not destroy the emerald spawner!">
-      <block name="emerald-spawner">-292,6,612</block>
+    <apply block="deny-spawners" message="You may not destroy spawners!">
+      <cuboid name="playable-not-inverted" min="-326,3,566" max="-258,15,658"/>
     </apply>
     <apply block="deny-all" message="You may not modify this platform!">
-      <cylinder name="spawn-platform-blue" base="-266,4,580" radius="8" height="oo"/>
-      <cylinder name="trade-platform-blue" base="-292,4,580" radius="4" height="oo"/>
-      <cylinder name="spawn-platform-red" base="-318,4,644" radius="8" height="oo"/>
-      <cylinder name="trade-platform-red" base="-292,4,644" radius="4" height="oo"/>
+      <cylinder name="spawn-platform-blue" base="-266,5,580" radius="8" height="oo"/>
+      <cylinder name="trade-platform-blue" base="-292,5,580" radius="4" height="oo"/>
+      <cylinder name="gold-platform-blue" base="-318,5,612" radius="7" height="3"/>
+      <cylinder name="spawn-platform-red" base="-318,5,644" radius="8" height="oo"/>
+      <cylinder name="trade-platform-red" base="-292,5,644" radius="4" height="oo"/>
+      <cylinder name="gold-platform-red" base="-266,5,612" radius="7" height="3"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify this void area!">
+      <cylinder name="void-middle-island" base="-292,3,612" radius="4" height="3"/>
     </apply>
     <apply block="allow-cobweb-cyan" message=" You may not modify this wool room!">
       <rectangle name="cyan-wool" min="-295,651" max="-289,657"/>
@@ -127,8 +131,8 @@
       <rectangle name="green-wool" min="-295,567" max="-289,573"/>
     </apply>
     <apply kit="spawn-regen">
-      <cuboid name="spawn-house-blue" min="-267,7,579" max="-265,9,581"/>
-      <cuboid name="spawn-house-red" min="-319,7,643" max="-317,9,645"/>
+      <block name="spawn-pit-blue">-262,6,580</block>
+      <block name="spawn-pit-red">-322,6,644</block>
     </apply>
     <apply enter="only-blue" message="You  may not enter blue's base!">
       <region name="spawn-platform-blue"/>
