@@ -72,6 +72,14 @@
     <item>gold_ingot</item>
     <item>bucket</item>
     <item>milk_bucket</item>
+    <item>glass_bottle</item>
+    <item>diamond_helmet</item>
+    <item>leather_chestplate</item>
+    <item>chainmail_leggings</item>
+    <item>leather_boots</item>
+    <item>iron_chestplate</item>
+    <item>iron_boots</item>
+    <item>diamond_sword</item>
   </itemremove>
   <killreward>
     <item>golden_apple</item>
