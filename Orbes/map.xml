@@ -28,7 +28,7 @@
       <item slot="1">bow</item>
       <item slot="2">diamond_pickaxe</item>
       <item slot="3">iron_axe</item>
-      <item slot="6" amount="16" damage="1">log2</item>
+      <item slot="6" amount="16" damage="1">log_2</item>
       <item slot="7">milk_bucket</item>
       <item slot="8">golden_apple</item>
       <item slot="27" amount="64">arrow</item>
@@ -42,13 +42,13 @@
       <leggings>chainmail_leggings</leggings>
     </kit>
     <kit name="blue" parents="spawn">
-      <item slot="4" amount="32" damage="11">stained_hardened_clay</item>
+      <item slot="4" amount="32" damage="11">stained_clay</item>
       <item slot="5" amount="16" damage="11">stained_glass</item>
       <chestplate color="003580">leather_chestplate</chestplate>
       <boots color="003580">leather_boots</boots>
     </kit>
       <kit name="red" parents="spawn">
-      <item slot="4" amount="32" damage="14">stained_hardened_clay</item>
+      <item slot="4" amount="32" damage="14">stained_clay</item>
       <item slot="5" amount="16" damage="14">stained_glass</item>
       <chestplate color="cd0000">leather_chestplate</chestplate>
       <boots color="cd0000">leather_boots</boots>
