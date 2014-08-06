@@ -11,16 +11,16 @@
     <contributor contribution="Map Design and Feedback">odisseus</contributor>
   </contributors>
   <wools>
-    <wool team="blue" color="cyan">
+    <wool team="Blue Team" color="cyan">
       <block>-292,6,578</block>
     </wool>
-      <wool team="red" color="green">
+      <wool team="Red Team" color="green">
       <block>-292,6,646</block>
     </wool>
   </wools>
   <teams>
-    <team color="blue" max="8">blue</team>
-    <team color="dark red" max="8">red</team>
+    <team color="blue" max="8">Blue Team</team>
+    <team color="dark red" max="8">Red Team</team>
   </teams>
   <kits>
     <kit name="spawn">
@@ -36,8 +36,8 @@
       <item slot="17">emerald</item>
       <potion duration="2" amplifier="3">speed</potion>
       <potion duration="4" amplifier="2">damage_resistance</potion>
-      <potion duration="oo">night_vision</potion>
-      <potion duration="oo">saturation</potion>
+      <potion duration="oo" potion-particles="false">night_vision</potion>
+      <potion duration="oo" potion-particles="false">saturation</potion>
       <helmet>diamond_helmet</helmet>
       <leggings>chainmail_leggings</leggings>
     </kit>
@@ -92,20 +92,20 @@
   <multitrade/>
   <filters>
     <filter name="only-blue">
-      <any><team>blue</team></any>
+      <any><team>Blue Team</team></any>
     </filter>
     <filter name="only-red">
-      <any><team>red</team></any>
+      <any><team>Red Team</team></any>
     </filter>
     <filter name="allow-cobweb-cyan">
       <all>
-        <team>blue</team>
+        <team>Blue Team</team>
         <block>web</block>
       </all>
     </filter>
     <filter name="allow-cobweb-green">
       <all>
-        <team>red</team>
+        <team>Red Team</team>
         <block>web</block>
       </all>
     </filter>
@@ -114,8 +114,8 @@
     </filter>
   </filters>
   <regions>
-    <negative>
-      <cuboid name="playable" min="-326,3,566" max="-258,15,658"/>
+    <negative  name="playable">
+      <cuboid min="-326,3,566" max="-258,15,658"/>
     </negative>
     <apply block="deny-all" message="You may not build outside of the map!">
       <region name="playable"/>
@@ -160,10 +160,10 @@
     </apply>
   </regions>
   <spawns>
-    <spawn team="blue" kit="blue" yaw="90">
+    <spawn team="Blue Team" kit="blue" yaw="90">
       <block name="blue-spawn">-266,7,580</block>
     </spawn>
-    <spawn team="red" kit="red" yaw="270">
+    <spawn team="Red Team" kit="red" yaw="270">
       <block name="spawn-red">-318,7,644</block>
     </spawn>
     <default yaw="270">
